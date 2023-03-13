@@ -1,0 +1,20 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: app-api
+spec:
+  selector:
+    matchLabels:
+      app: app-api
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: app-api
+    spec:
+      containers:
+        - name: backend
+          image: abishatk/flask-app
+          imagePullPolicy: Never
+          ports:
+            - containerPort: 8800
